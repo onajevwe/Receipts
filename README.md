@@ -190,7 +190,7 @@ Source access depends on permissions, licensing, availability, and platform rest
 
 ---
 
-## Proposed Technology Stack
+## Technology Stack
 
 | Layer | Technologies |
 |---|---|
@@ -291,40 +291,6 @@ Core principles:
 - The Web
 - Play Receipts
 - Election 2027
-
-These milestones describe development priorities, not reductions to the final product vision.
-
-## Project Status
-
-**Active development — pre-release.**
-
-Receipts is being built toward public deployment. Features described above represent the intended product unless explicitly documented as implemented.
-
-Implementation progress, benchmarks, and deployment links will be added as they become available.
-
-## Research & Technical Writing
-
-Receipts will also serve as a practical research environment for studying:
-
-- Multimodal political information retrieval
-- Source-aware retrieval-augmented generation
-- Temporal claim and promise extraction
-- Evidence provenance and deduplication
-- Nigerian political NLP and entity resolution
-- Search relevance and latency trade-offs
-
-Technical experiments, engineering write-ups, and reproducible benchmarks will be published as the project develops.
-
-## Contributing
-
-Contribution guidelines and the initial issue backlog will be published as the codebase matures.
-
-Researchers, engineers, journalists, and civic-technology contributors interested in trustworthy public-information systems are welcome to follow the project.
-
-## License
-
-License to be determined. Source code, datasets, third-party content, and editorial material may require different licensing arrangements.
-
 ---
 
 **RECEIPTS.**
