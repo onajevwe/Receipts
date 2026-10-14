@@ -1,0 +1,38 @@
+[project] #names the root project and says it needs python 3.12 or newwer
+name = "receipts"
+version = "0.1.0"
+requires-python = ">=3.12" #This stops someone running it on an old python and hitting confusing errors.
+dependencies = []
+
+#This tells uv that every folder inside packages/ and services/ is part of this workspace.
+#* allows new packages join automatically
+[tool.uv.workspace]
+members = [
+    "packages/receipts_core",
+    "packages/receipts_search",
+    "services/api",
+    "services/worker",
+]
+
+#This lists tols developers need but the live app doesnt
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "pre-commit>=4.7.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["packages", "services"]
+addopts = "--import-mode=importlib"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+strict = true
