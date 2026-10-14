@@ -1,0 +1,42 @@
+name: CI
+
+# When to run: on every pull request, and on every push to main,
+# so main itself is always known to be green.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# Least privilege: this workflow only needs to read the code.
+permissions:
+  contents: read
+
+# If you push twice in a row to the same PR, cancel the older run.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install Python (version from .python-version)
+        run: uv python install
+
+      - name: Install dependencies (fail if uv.lock is out of date)
+        run: uv sync --all-packages --locked
+
+      - name: Lint, format check and type check
+        run: make lint
+
+      - name: Run tests
+        run: make test
