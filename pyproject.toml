@@ -14,9 +14,14 @@ members = [
     "services/worker",
 ]
 
-#This lists tols developers need but the live app doesnt 
+#This lists tols developers need but the live app doesnt
 [dependency-groups]
-dev = ["pytest>=8", "ruff>=0.6", "mypy>=1.11"]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "pre-commit>=4.7.0",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["packages", "services"]
